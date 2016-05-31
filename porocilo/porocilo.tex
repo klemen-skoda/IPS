@@ -1,0 +1,116 @@
+
+\documentclass[11pt,a4paper,slovene]{article}
+
+%Uporabljeni paketi
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\captionsetup{font={default,footnotesize}, labelfont=bf, format=hang,indention=.0cm}
+\usepackage{graphicx,epsfig}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{url}
+\usepackage{makeidx}
+\usepackage[official]{eurosym}
+
+\usepackage{hyperref}
+\hypersetup{
+   bookmarksnumbered=true,
+   urlbordercolor={0 1 0},
+   linkbordercolor={1 1 1},
+   unicode=true,
+   pdftitle={ Brez\v{z}i\v{c}na in Mobilna Omre\v{z}ja },
+   pdfauthor={Asistent},
+   pdfdisplaydoctitle=true,
+   pdftoolbar=true,
+   pdfmenubar=true,
+   pdfstartview=X Y Z
+}
+
+\urlstyle{same}
+
+\setlength{\parskip}{12pt}
+\setlength\parindent{0pt}
+\setlength\unitlength{1mm}
+
+\begin{document}
+\label{naslov}
+\pdfbookmark[1]{Naslov}{naslov}
+\thispagestyle{empty}
+
+\begin{center}
+\begin{Large}
+Brez\v{z}i\v{c}na in Mobilna Omre\v{z}ja\\
+Študijsko leto 2015/2016\\
+\end{Large}
+
+\vspace*{4cm}
+\begin{LARGE}
+\textbf{Indoor lokalizacija\\}
+\end{LARGE}
+\vspace*{0.5cm}
+
+\begin{Large}
+Končno poročilo seminarske naloge\\
+
+\vspace*{4cm}
+
+Miha Novak\\
+Vpisna št. 63099999\\
+Klemen Škoda\\
+Vpisna št. 63100318\\
+
+\vspace*{5cm}
+Ljubljana, \today
+\end{Large}
+\end{center}
+
+\pagebreak
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+\label{Kazalo}
+\pdfbookmark[1]{Kazalo}{Kazalo}
+\tableofcontents
+\thispagestyle{empty}
+\pagebreak
+
+\section{Uvod in motivacija}
+V današnjem času zelo veliko uporabljamo GPS kot pomoč pri iskanju poti do lokacij. Problem pa nastane, v zaprtih prostorih, kjer je GPS zelo nenatančen oz. neuporaben.
+Z našo aplikacijo želimo pokazati primer iskanja lokacije v zaprtih prostorih. Taka rešitev bi bila zelo uporabna v velikih nakupovalnih središčih ter naprimer skladiščih, da se lažje orienteramo in najdemo željeno lokacijo. Največjo uporabnost pa vidimo v primerih klicov v sili, saj se velikokrat zgodi, da je zelo težko najti osebo v stanovanjskem objektu, saj je večinoma vedno podan le naslov ne pa točna lokacija. Zato mislimo, da bi z nadaljno implementacijo in razširitvijo naše aplikacije lahko naredili zelo uporabno in dobro rešitev, ki bi pomagala mnogim.
+Opis problema, ki ga naša rešitev reši.
+
+\section{Opis uporabljene strojne in programske opreme}
+Kratek opis uporabljene strojne in programske opreme.
+
+\section{Rešitev}
+Podroben opis rešitve. Sem spadajo načrtovanje, struktura omrežja, opis sprogramiranih modulov, konfiguracije usmerjevalnikov in omrežij.
+
+\section{Rezultati}
+Podroben opis rezultatov in pregled grafov performančne analize.
+
+\section{Zaključek}
+Z našo aplikacijo je bil dosežen željen cilj, ki smo si ga postavili. Sam algoritem za iskanje lokacije bi bilo možno vložiti še veliko več dela, če bi želeli res točne podatke.
+Ali ste izpolnili cilje in možne nadaljne nadgradnje. Pri samem opisu rešitve se običajno sklicujemo na reference, npr. \cite{cisco}. 
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

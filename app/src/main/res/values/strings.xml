@@ -3,4 +3,7 @@
     <string name="ssid">SSID</string>
     <string name="bssid">BSSID</string>
     <string name="rssi">RSSI</string>
+    <string name="kje_se_nahajam">Kje se nahajam?</string>
+    <string name="dostopne_tocke">Dostopne tocke</string>
+    <string name="vse_dostopne_tocke">Vse dostopne tocke</string>
 </resources>

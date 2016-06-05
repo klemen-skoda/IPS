@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{freespace}
+Web source.
+\newblock Free-space path loss.
+\newblock \url{https://en.wikipedia.org/wiki/Free-space_path_loss}.
+
+\bibitem{trilateriationTechnique}
+Web source.
+\newblock Indoos position detection using wifi and trilateration technique.
+\newblock \url{http://sdiwc.net/digital-library/download.php?id=00000223.pdf}.
+
+\bibitem{wrt}
+Web source.
+\newblock Linksys wrt54gl.
+\newblock \url{https://wiki.openwrt.org/toh/linksys/wrt54g}.
+
+\bibitem{nexus}
+Web source.
+\newblock Nexus 5.
+\newblock
+  \url{http://www.telekom.si/zasebni-uporabniki/mobiteli-in-naprave/mobiteli/lg-nexus-5}.
+
+\bibitem{android}
+Web source.
+\newblock Orodje android studio.
+\newblock \url{https://developer.android.com/studio/intro/index.html}.
+
+\bibitem{trilateration}
+Web source.
+\newblock Trilateration.
+\newblock \url{https://en.wikipedia.org/wiki/Trilateration}.
+
+\end{thebibliography}

@@ -1,6 +1,11 @@
 \select@language {slovene}
 \contentsline {section}{\numberline {1}Uvod in motivacija}{2}{section.1}
 \contentsline {section}{\numberline {2}Opis uporabljene strojne in programske opreme}{2}{section.2}
-\contentsline {section}{\numberline {3}Re\IeC {\v s}itev}{2}{section.3}
-\contentsline {section}{\numberline {4}Rezultati}{2}{section.4}
-\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ek}{2}{section.5}
+\contentsline {subsection}{\numberline {2.1}Linksys WRT54GL \cite {wrt}}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Nexus 5 \cite {nexus}}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Android Studio \cite {android}}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}Re\IeC {\v s}itev}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Izra\IeC {\v c}un oddaljenosti Dostopne To\IeC {\v c}ke}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Izra\IeC {\v c}un lokacije}{5}{subsection.3.2}
+\contentsline {section}{\numberline {4}Rezultati}{5}{section.4}
+\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ek}{6}{section.5}

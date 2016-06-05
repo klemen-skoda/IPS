@@ -53,6 +53,15 @@ public class WhereAmI extends Activity implements LocationListener {
         AccessPoint ap1;
         AccessPoint ap2;
         AccessPoint ap3;
+        float z1 = 0;
+        float z2 = 0;
+        float z3 = 0;
+        float ap1X = 0;
+        float ap1Y = 0;
+        float ap2X = 0;
+        float ap2Y = 0;
+        float ap3X = 0;
+        float ap3Y = 0;
 
         List<AccessPoint> accessPoints = AccessPoints.getAccessPoints();
         int index = 0;
@@ -62,42 +71,73 @@ public class WhereAmI extends Activity implements LocationListener {
                 Log.d("accesspoint", "got accesspoint");
               if(index == 0){
                   ap1 = accessPoint;
-                  r1= ((float) calculateDistance(accessPoint.getRSSI(), 2462));
+                  //Distance from AP calculation Free-space path loss
+                  r1= ((float) getDistance(accessPoint.getRSSI(), 2462));
+                  //Distance from AP calculation
                   rx1 =  (float) Math.abs(maxRange * Math.log10(1-(((float)(100.0/60.0) * (float)(Math.abs(accessPoint.getRSSI() + 40)))/100.0)));
-                  Toast.makeText(this, r1 + "m " + rx1 + "m " + accessPoint.getBSSID()+ " " + accessPoint.getRSSI(), Toast.LENGTH_LONG).show();
+                  //Toast.makeText(this, r1 + "m " + rx1 + "m " + accessPoint.getBSSID()+ " " + accessPoint.getRSSI(), Toast.LENGTH_LONG).show();
                   ((TextView) findViewById(R.id.BSSID1)).setText("RSSI: " + ap1.getRSSI() + "dBm BSSID: " + ap1.getBSSID());
                   ((TextView) findViewById(R.id.Radius1)).setText("x: " + ap1.getX() + " y: " + ap1.getY() + " z: " + ap1.getZ() + " Distance: " + rx1 + "m");
+                  //((TextView) findViewById(R.id.Radius1)).setText("x: " + ap1.getX() + " y: " + ap1.getY() + " z: " + ap1.getZ() + " Distance: " + rx1 + "m Freespace distance:" + r1 + "m");
+                  ap1X = ap1.getX();
+                  ap1Y = ap1.getY();
+                  z1 = ap1.getZ();
               }else if(index == 1){
                   ap2 = accessPoint;
-                  r2= ((float) calculateDistance(accessPoint.getRSSI(), 2437));
+                  //Distance from AP calculation Free-space path loss
+                  r2= ((float) getDistance(accessPoint.getRSSI(), 2437));
+                  //Distance from AP calculation
                   rx2 =  (float) Math.abs(maxRange * Math.log10(1-(((float)(100.0/60.0) * (float)(Math.abs(accessPoint.getRSSI() + 40)))/100.0)));  //previous version // (float) (maxRange *((((float)(100.0/60.0) * (float)(Math.abs(accessPoint.getRSSI() + 40)))/100.0)));
                   ((TextView) findViewById(R.id.BSSID2)).setText("RSSI: " + ap2.getRSSI() + "dBm BSSID: " + ap2.getBSSID());
                   ((TextView) findViewById(R.id.Radius2)).setText("x: " + ap2.getX() + " y: " + ap2.getY() + " z: " + ap2.getZ() + " Distance: " + rx2 + "m");
-                  Toast.makeText(this, r2 + "m " + rx2 + "m " + accessPoint.getBSSID()+ " " + accessPoint.getRSSI(), Toast.LENGTH_LONG).show();
+                  //((TextView) findViewById(R.id.Radius2)).setText("x: " + ap2.getX() + " y: " + ap2.getY() + " z: " + ap2.getZ() + " Distance: " + rx2 + "m Freespace distance:" + r2 + "m");
+                  ap2X = ap2.getX();
+                  ap2Y = ap2.getY();
+                  z2 = ap2.getZ();
+                  //Toast.makeText(this, r2 + "m " + rx2 + "m " + accessPoint.getBSSID()+ " " + accessPoint.getRSSI(), Toast.LENGTH_LONG).show();
               }else if(index == 2){
                   ap3 = accessPoint;
-                  r3= ((float) calculateDistance(accessPoint.getRSSI(), 2484));
+                  //Distance from AP calculation Free-space path loss
+                  r3= ((float) getDistance(accessPoint.getRSSI(), 2484));
+                  //Distance from AP calculation
                   rx3 = (float) Math.abs(maxRange * Math.log10(1-(((float)(100.0/60.0) * (float)(Math.abs(accessPoint.getRSSI() + 40)))/100.0)));
                   ((TextView) findViewById(R.id.BSSID3)).setText("RSSI: " + ap3.getRSSI() + "dBm BSSID: " + ap3.getBSSID());
                   ((TextView) findViewById(R.id.Radius3)).setText("x: " + ap3.getX() + " y: " + ap3.getY() + " z: " + ap3.getZ() + " Distance: " + rx3 + "m");
-                  Toast.makeText(this, r3 + "m " + rx3 + "m " + accessPoint.getBSSID()+ " " + accessPoint.getRSSI(), Toast.LENGTH_LONG).show();
+                  //((TextView) findViewById(R.id.Radius3)).setText("x: " + ap3.getX() + " y: " + ap3.getY() + " z: " + ap3.getZ() + " Distance: " + rx3 + "m Freespace distance:" + r3 + "m");
+                  ap3X = ap3.getX();
+                  ap3Y = ap3.getY();
+                  z3 = ap3.getZ();
+                  //Toast.makeText(this, r3 + "m " + rx3 + "m " + accessPoint.getBSSID()+ " " + accessPoint.getRSSI(), Toast.LENGTH_LONG).show();
               }
                 index++;
             }
         }
         float x = 0;
         float y = 0;
-        float z = 0;
+        float z = 1;
+        //Location calculation
+        x = ((float)(((rx2*rx2) - (rx3*rx3) + (ap3X * ap3X) )/ (2.0 * ap3X)));
+        y = (float) ((float) ((((rx2*rx2)-(rx1*rx1) + (ap1X*ap1X) + (ap1Y*ap1Y))/ (2.0 * ap1Y)) - ((ap1X/ap1Y) * x)));
 
-        x = ((float)(((rx2*rx2) - (rx3*rx3) + (6.0 * 6.0)) / (2.0 * 6.0)));
-        y = (float) ((float) ((((rx2*rx2)-(rx1*rx1) + (5.0*5.0) + (4.0*4.0))/ (2.0 * 4.0)) - ((5.0/4.0) * x)));
-        ((TextView) findViewById(R.id.Position)).setText("x: " + x + "m y: " + y + "m z: " + z + " floor ");
-        Toast.makeText(this,"x:" + x + "m y:" + y + "m this is a try" , Toast.LENGTH_LONG).show();
+        //Z axis prediction
+        z = Math.min(rx1,rx2);
+        z = Math.min(z,rx3);
+        //z = (float) Math.sqrt(Math.abs((r2*r2) - (x*x) - (y*y)));
+        if(z == rx1){
+            z = z1;
+        }else if(z == rx2){
+            z = z2;
+        }else{
+            z = z3;
+        }
+        ((TextView) findViewById(R.id.Position)).setText("x: " + x + "m y: " + y + "m z: " + z + "m ");
+        //Toast.makeText(this,"x:" + ap3X + "m y:" + ap1X + "m this is a try " + ap1Y , Toast.LENGTH_LONG).show();
         getLocation();
     }
-
-    public double calculateDistance(double signalLevelInDb, double freqInMHz) {
-        double exp = (27.55 - (20 * Math.log10(freqInMHz)) + Math.abs(signalLevelInDb)) / 20.0;
+    //Function that calculates distance using Free-space path loss algorithm
+    public double getDistance(double RSSI, double frequency) {
+        //27.55 is coeficient that says we will get distance in meters and that we're using frequency in MHz
+        double exp = (27.55 - (20 * Math.log10(frequency)) + Math.abs(RSSI)) / 20.0;
         return Math.pow(10.0, exp);
     }
 

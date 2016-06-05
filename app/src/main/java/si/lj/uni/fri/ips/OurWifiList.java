@@ -49,6 +49,7 @@ public class OurWifiList extends Activity {
                     for (AccessPoint accessPoint : accessPoints) {
                         if (scanResult.BSSID.equalsIgnoreCase(accessPoint.getBSSID())) {
                             results.add(scanResult);
+                            accessPoint.setRSSI(scanResult.level);
                         }
                     }
                 }
